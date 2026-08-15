@@ -207,6 +207,7 @@ def load_checkpoints_from_csv(csv_path):
 CHECKPOINTS = load_checkpoints_from_csv(CHECKPOINTS_CSV_FILE)
 
 # 根据 CHECKPOINTS 自动生成 SECTOR_CONFIG 列表 (例如 [5, 4, 6])
+# 注意：目前不支持 [5, 4, 6] 这种不规则的分段配置，必须保证每个 Sector 之间的 Mini-Sector 数量相同。
 # 逻辑：遍历所有检查点，累加计数；遇到 is_sector=True 时结算当前段
 SECTOR_CONFIG = []
 _current_ms_count = 0
